@@ -23,4 +23,12 @@ $$("textarea.language-js.fill").forEach(t => {
 });
 
 
+var css = await fetch("https://cdn.jsdelivr.net/gh/lambedigdoyo/prismjs@main/css/prism.css");
+css = await css.text();
+
+$$("textarea.language-css.fill").forEach(t => {
+	t.value = css;
+	t.dispatchEvent(new InputEvent("input"));
+});
+	
 })(Bliss, Bliss.$);
